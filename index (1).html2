@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<wonderful charset="UTF-8">
+<mzilahowa  name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Malawi Connect</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f6f3;
+    color: #222;
+}
+
+header {
+    background: #075c36;
+    color: white;
+    text-align: center;
+    padding: 22px 12px;
+}
+
+header h1 {
+    margin-bottom: 8px;
+}
+
+nav {
+    background: #064728;
+    padding: 12px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 8px;
+    display: inline-block;
+}
+
+.hero {
+    background: linear-gradient(135deg, #087f4b, #064728);
+    color: white;
+    text-align: center;
+    padding: 38px 16px;
+}
+
+.hero h2 {
+    margin-bottom: 12px;
+    font-size: 29px;
+}
+
+.hero p {
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 25px auto;
+    padding: 0 15px;
+}
+
+.panel {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px #00000012;
+}
+
+.panel h2 {
+    text-align: center;
+    color: #075c36;
+    margin-bottom: 10px;
+}
+
+.description {
+    text-align: center;
+    color: #666;
+    margin-bottom: 22px;
+    line-height: 1.5;
+}
+
+.tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.tabs button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #e7eee9;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tabs button.active {
+    background: #075c36;
+    color: white;
+}
+
+label {
+    display: block;
+    margin: 14px 0 7px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input, select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccd5ce;
+    border-radius: 6px;
+    font-size: 16px;
+    background: white;
+}
+
+input:focus, select:focus {
+    outline: 2px solid #73b995;
+    border-color: #075c36;
+}
+
+.password-wrap {
+    display: flex;
+    gap: 8px;
+}
+
+.password-wrap input {
+    flex: 1;
+    min-width: 0;
+}
+
+.show-password {
+    border: none;
+    padding: 0 10px;
+    background: #e7eee9;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.submit {
+    width: 100%;
+    padding: 14px;
+    margin-top: 22px;
+    border: none;
+    border-radius: 6px;
+    background: #075c36;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit:active {
+    background: #043b23;
+}
+
+.message {
+    display: none;
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 6px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.message.success {
+    display: block;
+    background: #e0f5e7;
+    color: #075c36;
+}
+
+.message.error {
+    display: block;
+    background: #ffe8e8;
+    color: #a00000;
+}
+
+.hidden {
+    display: none;
+}
+
+.note {
+    margin-top: 18px;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.6;
+}
+
+footer {
+    margin-top: 35px;
+    background: #063c26;
+    color: white;
+    text-align: center;
+    padding: 25px 12px;
+    line-height: 1.8;
+}
+
+@media (max-width: 400px) {
+    .panel {
+        padding: 16px;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🇲🇼 Malawi Connect</h1>
+    <p>Connecting People, Businesses and Opportunities</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#account">My Account</a>
+</nav>
+
+<section class="hero" id="home">
+    <h2>Your Opportunities Start Here!</h2>
+    <p>
+        Find jobs, grow your business, connect with
+        transport providers and discover local services.
+    </p>
+</section>
+
+<main class="container" id="account">
+
+<section class="panel">
+
+    <h2 id="formTitle">Create Your Account</h2>
+
+    <p class="description" id="formDescription">
+        Join Malawi Connect and discover new opportunities.
+    </p>
+
+    <div class="tabs">
+        <button type="button" id="registerTab"
+                class="active" onclick="switchMode('register')">
+            Register
+        </button>
+
+        <button type="button" id="loginTab"
+                onclick="switchMode('login')">
+            Log In
+        </button>
+    </div>
+
+    <form id="accountForm">
+
+        <div id="nameField">
+            <label for="fullName">Full Name</label>
+            <input
+                id="fullName"
+                type="text"
+                autocomplete="name"
+                placeholder="Enter your full name"
+                required
+                minlength="2"
+                maxlength="80"
+            >
+        </div>
+
+        <div id="roleField">
+            <label for="role">Choose Account Type</label>
+
+            <select id="role" required>
+                <option value="">Select your account type</option>
+                <option value="jobseeker">Job Seeker</option>
+                <option value="business">Business Owner</option>
+                <option value="customer">Customer</option>
+                <option value="kabaza">Kabaza Rider</option>
+                <option value="taxi">Taxi Driver</option>
+                <option value="restaurant">Restaurant Owner</option>
+                <option value="delivery">Delivery Rider</option>
+            </select>
+        </div>
+
+        <label for="email">Email Address</label>
+        <input
+            id="email"
+            type="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            required
+        >
+
+        <div id="phoneField">
+            <label for="phone">Phone Number (Optional)</label>
+            <input
+                id="phone"
+                type="tel"
+                autocomplete="tel"
+                placeholder="e.g. +265 991 234 567"
+            >
+        </div>
+
+        <label for="password">Password</label>
+
+        <div class="password-wrap">
+            <input
+                id="password"
+                type="password"
+                autocomplete="new-password"
+                placeholder="At least 8 characters"
+                minlength="8"
+                maxlength="128"
+                required
+            >
+
+            <button
+                class="show-password"
+                type="button"
+                onclick="togglePassword()">
+                Show
+            </button>
+        </div>
+
+        <div id="confirmField">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+                id="confirmPassword"
+                type="password"
+                autocomplete="new-password"
+                placeholder="Enter your password again"
+                minlength="8"
+                maxlength="128"
+                required
+            >
+        </div>
+
+        <button class="submit" type="submit" id="submitButton">
+            Create Account
+        </button>
+
+        <div id="message" class="message" role="status"
+             aria-live="polite"></div>
+
+    </form>
+
+    <p class="note">
+        Development demo only: this form does not yet create
+        secure accounts on a server. Do not enter a real
+        password until backend authentication is connected.
+    </p>
+
+</section>
+
+</main>
+
+<footer>
+    <p>© 2026 Malawi Connect</p>
+    <p>Connecting Malawi, One Opportunity at a Time.</p>
+</footer>
+
+<script>
+let currentMode = "register";
+
+const form = document.getElementById("accountForm");
+const message = document.getElementById("message");
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
+
+function switchMode(mode) {
+    currentMode = mode;
+
+    const registering = mode === "register";
+
+    document.getElementById("formTitle").textContent =
+        registering ? "Create Your Account" : "Welcome Back";
+
+    document.getElementById("formDescription").textContent =
+        registering
+        ? "Join Malawi Connect and discover new opportunities."
+        : "Log in to your Malawi Connect account.";
+
+    document.getElementById("nameField").classList.toggle(
+        "hidden", !registering
+    );
+
+    document.getElementById("roleField").classList.toggle(
+        "hidden", !registering
+    );
+
+    document.getElementById("phoneField").classList.toggle(
+        "hidden", !registering
+    );
+
+    document.getElementById("confirmField").classList.toggle(
+        "hidden", !registering
+    );
+
+    document.getElementById("fullName").required = registering;
+    document.getElementById("role").required = registering;
+    document.getElementById("confirmPassword").required = registering;
+
+    password.autocomplete = registering
+        ? "new-password"
+        : "current-password";
+
+    confirmPassword.disabled = !registering;
+
+    document.getElementById("submitButton").textContent =
+        registering ? "Create Account" : "Log In";
+
+    document.getElementById("registerTab").classList.toggle(
+        "active", registering
+    );
+
+    document.getElementById("loginTab").classList.toggle(
+        "active", !registering
+    );
+
+    message.className = "message";
+    message.textContent = "";
+}
+
+function togglePassword() {
+    password.type = password.type === "password"
+        ? "text"
+        : "password";
+
+    document.querySelector(".show-password").textContent =
+        password.type === "password" ? "Show" : "Hide";
+}
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    message.className = "message";
+    message.textContent = "";
+
+    if (!form.reportValidity()) {
+        return;
+    }
+
+    if (currentMode === "register") {
+        if (password.value !== confirmPassword.value) {
+            message.className = "message error";
+            message.textContent =
+                "Your passwords do not match. Please try again.";
+            return;
+        }
+
+        message.className = "message success";
+        message.textContent =
+            "Your registration form is valid! The next step is " +
+            "connecting it to secure account creation on our server.";
+
+    } else {
+        message.className = "message success";
+        message.textContent =
+            "The login form is valid. Server authentication " +
+            "has not been connected yet.";
+    }
+});
+</script>
+
+</body>
+</html>
