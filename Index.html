@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087443">
+  <title>Malawi Connect | Your Malawi Marketplace</title>
+  <meta name="description" content="Find jobs, discover businesses, book transport and explore food services across Malawi.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#home">🇲🇼 Malawi Connect</a>
+    <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation">☰</button>
+    <nav id="navigation">
+      <a href="#jobs">Jobs</a>
+      <a href="#businesses">Businesses</a>
+      <a href="#transport">Transport</a>
+      <a href="#food">Food</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <p class="eyebrow">YOUR COMMUNITY. YOUR OPPORTUNITIES.</p>
+      <h1>Everything Malawi needs, in one place.</h1>
+      <p>Find work, grow your business, get a ride or discover food near you.</p>
+      <a class="primary-button" href="#explore">Explore Malawi Connect</a>
+    </section>
+
+    <section class="search-section" id="explore">
+      <h2>What are you looking for?</h2>
+      <form id="search-form">
+        <input id="search-input" type="search"
+          placeholder="Search jobs, businesses, transport..."
+          aria-label="Search Malawi Connect">
+        <button type="submit">Search</button>
+      </form>
+      <p id="search-message" aria-live="polite"></p>
+    </section>
+
+    <section class="categories">
+      <h2>Explore our services</h2>
+      <div class="card-grid">
+        <article class="service-card" id="jobs" data-search="jobs employment work careers">
+          <span class="card-icon">💼</span>
+          <h3>Find Jobs</h3>
+          <p>Discover opportunities and connect with employers.</p>
+          <a href="#get-started">Explore jobs →</a>
+        </article>
+
+        <article class="service-card" id="businesses" data-search="business shops marketing advertising">
+          <span class="card-icon">🏪</span>
+          <h3>Businesses</h3>
+          <p>Help customers discover your business and services.</p>
+          <a href="#get-started">Discover businesses →</a>
+        </article>
+
+        <article class="service-card" id="transport" data-search="kabaza taxi motorcycle rides transport">
+          <span class="card-icon">🏍️</span>
+          <h3>Kabaza & Taxis</h3>
+          <p>Find local transport and connect with drivers.</p>
+          <a href="#get-started">Find transport →</a>
+        </article>
+
+        <article class="service-card" id="food" data-search="food restaurants meals delivery orders">
+          <span class="card-icon">🍽️</span>
+          <h3>Food & Delivery</h3>
+          <p>Discover restaurants and food delivery services.</p>
+          <a href="#get-started">Explore food →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="get-started" id="get-started">
+      <h2>Join Malawi Connect</h2>
+      <p>Are you looking for work or ready to grow your business?</p>
+      <div class="action-buttons">
+        <button class="primary-button" data-message="Job seeker registration will be available soon.">
+          Find work
+        </button>
+        <button class="secondary-button" data-message="Business and service provider registration will be available soon.">
+          Register a business
+        </button>
+      </div>
+      <p id="action-message" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Malawi Connect. Connecting Malawi.</p>
+    <p>Built for opportunities across Malawi 🇲🇼</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
